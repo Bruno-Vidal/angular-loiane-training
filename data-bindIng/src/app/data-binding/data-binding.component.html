@@ -1,6 +1,6 @@
 <section>
   <article>
-    <h3> Interpolation / Interpolação : <a [href]="url">{{url}}</a> </h3>
+    <h3> Interpolation / Interpolação : <a [href]="url">{{url}}</a></h3>
   </article>
 
   <article>
@@ -24,7 +24,8 @@
         [class.alert-info]="classe.value == 'alert-info'"
         [class.alert-warning]="classe.value == 'alert-warning'"
         [class.alert-danger]="classe.value == 'alert-danger'"
-      >Alert</div>
+      >Alert
+      </div>
     </div>
 
     Selecione filtro de sexo:
@@ -35,11 +36,40 @@
     </select>
 
     <div *ngFor="let person of data"
-    [class.tipo-masculino]="person.sexo == getValorMaculino()"
-    [class.tipo-feminino]="person.sexo == getValorFeminino()"
-    [style.display]="(sexo.value == person.sexo.toString() || sexo.value == sexos.ALL)? 'block' : 'none'"
+         [class.tipo-masculino]="person.sexo == getValorMaculino()"
+         [class.tipo-feminino]="person.sexo == getValorFeminino()"
+         [style.display]="(sexo.value == person.sexo.toString() || sexo.value == sexos.ALL)? 'block' : 'none'"
     >
       <h2> Nome : {{person.nome}}</h2>
+    </div>
+  </article>
+
+
+  <article>
+    <h3>Event Binding</h3>
+    <div>
+      <button
+        class="btn btn-primary"
+        (click)="botaoClicado()"
+      >
+        Me click
+      </button>
+
+      <input (keyup)="onKeyUp($event)"
+             (keyup.enter)="saveValue(campoInput.value)"
+             (blur)="saveValue(campoInput.value)"
+             #campoInput
+      >
+
+      <span
+        (mouseover)="onMouseOver()"
+        (mouseout)="onMouseOver()"
+        [class.highligth]="isMouseOver"
+      >
+      MouseOver
+      </span>
+
+      <label for="">{{valorAtual}}</label>
     </div>
   </article>
 
