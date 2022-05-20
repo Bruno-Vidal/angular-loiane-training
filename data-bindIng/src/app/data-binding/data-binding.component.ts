@@ -22,6 +22,11 @@ export class DataBindingComponent implements OnInit {
   ]
   valorAtual!: string;
   isMouseOver: boolean = false
+  nome: string = 'kito'
+  pessoa =  {
+    nome : 'def',
+    idade: 20
+  }
 
   constructor() {
   }
